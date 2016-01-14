@@ -1,0 +1,192 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.piekno.LoginActivity" >
+   
+    <ImageView android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="101"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_top"
+		android:focusable="true"
+		android:focusableInTouchMode="true"/>
+    <Space android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="48"/>
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="51"
+        android:orientation="horizontal"
+        android:gravity="center"
+		android:focusable="true"
+		android:focusableInTouchMode="true">
+       	    <Space android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:layout_weight="37"
+		        />
+    
+	        <LinearLayout android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_weight="117"
+	            android:orientation="vertical">
+			            
+			            <EditText android:id="@+id/login_input_id"
+			                android:layout_width="match_parent"
+			                android:layout_height="0dp"
+			                android:layout_weight="10"
+			                android:inputType="textUri"
+			                android:background="@drawable/login_textbox_id_normal"
+			                android:paddingLeft="20dp"
+			                android:paddingRight="20dp"
+			                />
+			            
+				        <Space android:layout_width="match_parent"
+					        android:layout_height="0dp"
+					        android:layout_weight="2"/>
+			            <EditText android:id="@+id/login_input_pw"
+			                android:layout_width="match_parent"
+			                android:layout_height="0dp"
+			                android:layout_weight="10"
+			                android:inputType="textPassword"
+			                android:background="@drawable/login_textbox_pw_normal"
+			                android:paddingLeft="20dp"
+			                android:paddingRight="20dp"
+			                 />
+	        </LinearLayout>
+	        
+	        <Space android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:layout_weight="7"/>
+
+	        <LinearLayout
+	            android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_weight="51" >
+	            
+	            <ImageButton android:id="@+id/btn_login"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:background="@drawable/login_btn_login_onoff"
+	                android:contentDescription="@string/text_autologin"
+	                />
+	            
+	        </LinearLayout>
+        
+	        <Space android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:layout_weight="38"/>
+    </LinearLayout>
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="32"
+        android:orientation="horizontal"
+        android:gravity="center">
+		        <Space android:layout_width="0dp"
+				        android:layout_height="match_parent"
+				        android:layout_weight="38"/>
+		      	<LinearLayout android:layout_width="0dp"
+				        android:layout_height="match_parent"
+				        android:layout_weight="174"
+				        android:orientation="horizontal"
+				        android:baselineAligned="false"
+				       >
+		            		<LinearLayout android:layout_width="0dp"
+					        android:layout_height="match_parent"
+					        android:layout_weight="1"
+					        android:orientation="horizontal"
+					        android:gravity="start|center_vertical"
+					       >
+							       <CheckBox
+								     android:id="@+id/login_autologinflag"
+								     android:layout_height="wrap_content"
+								     android:layout_width="wrap_content"
+								     android:paddingLeft="5dp"
+								     android:button="@drawable/imgcheckbox"
+								     android:text="@string/text_autologin"
+								     android:textColor="@color/text_color"
+								     android:textSize="12sp"/>
+					       </LinearLayout>
+					       <LinearLayout android:layout_width="0dp"
+					        android:layout_height="match_parent"
+					        android:layout_weight="1"
+					        android:orientation="horizontal"
+					        android:gravity="end|center_vertical"
+					       >
+					       			<Button android:id="@+id/login_btn_idpwfind"
+					       			    android:layout_width="wrap_content"
+					       			    android:layout_height="wrap_content"
+					       			    android:background="@null"
+					       			    android:text="@string/find_idpw"
+					       			    android:textColor="@color/text_color"
+					       			    android:textSize="12sp"/>
+					       </LinearLayout>
+	            </LinearLayout>
+		        <Space android:layout_width="0dp"
+				        android:layout_height="match_parent"
+				        android:layout_weight="38"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:orientation="horizontal">
+		        <Space android:layout_width="0dp"
+						        android:layout_height="match_parent"
+						        android:layout_weight="38"/>
+		         <LinearLayout android:layout_width="0dp"
+				            android:layout_weight="174"
+					        android:layout_height="match_parent"
+					        android:background="@color/text_color">
+		         </LinearLayout>
+		        <Space android:layout_width="0dp"
+						        android:layout_height="match_parent"
+						        android:layout_weight="38"/>
+    </LinearLayout>
+    
+    <Space android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"/>
+    
+     <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="23"
+        android:orientation="horizontal"
+        android:gravity="center">
+		        
+		        <Space android:layout_width="0dp"
+						        android:layout_height="match_parent"
+						        android:layout_weight="38"/>
+		        <ImageButton android:id="@+id/login_btn_join"
+		            android:layout_width="0dp"
+		            android:layout_weight="174"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/login_btn_join_onoff"
+		            android:background="@null"
+		            android:scaleType="centerCrop"
+		            android:contentDescription="@string/find_idpw"/>
+		        
+		        <Space android:layout_width="0dp"
+						        android:layout_height="match_parent"
+						        android:layout_weight="38"/>
+	</LinearLayout>
+	
+	<Space android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="101"/>
+	
+	<LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="61"
+        android:orientation="vertical"
+        android:gravity="center|top">
+		        <ImageView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/login_bottom_logo"
+		            android:scaleType="centerCrop"/>
+	</LinearLayout>
+	
+</LinearLayout>
