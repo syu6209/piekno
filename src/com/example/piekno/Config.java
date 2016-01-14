@@ -10,6 +10,7 @@ public class Config {
 	public static String main_banner_img_url[] = new String[5];
 	public static int loadingState = 0;
 	public static String loadingMove = null;
+	public static String URL_login="http://www.danvely.com/piekno/login.php";
 	public static void toast(Context ctx, String msg){
 		try{
 		Toast toast = Toast.makeText(ctx, msg, Toast.LENGTH_SHORT); 

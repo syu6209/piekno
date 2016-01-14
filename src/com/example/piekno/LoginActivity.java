@@ -1,5 +1,17 @@
 package com.example.piekno;
 
+import java.util.ArrayList;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
 import com.piekno.Utils.DoubleBackCloseHandler;
 
 import android.app.Activity;
@@ -18,7 +30,10 @@ import android.widget.ImageButton;
 
 public class LoginActivity extends Activity implements OnClickListener {
 	Thread th;
+	String user_id,user_pw;
 
+	HttpResponse response;
+	
 	private DoubleBackCloseHandler appcloser;
 
 	@Override
@@ -117,17 +132,50 @@ public class LoginActivity extends Activity implements OnClickListener {
 		Intent intent = new Intent(LoginActivity.this, LoadingActivity.class);
 		intent.putExtra("Comment", "로그인 중입니다.");
 		intent.putExtra("After", "로그인 성공!");
+		/*
 		intent.putExtra("ID",txt_id.getText().toString());
 		intent.putExtra("PW",txt_pw.getText().toString());
-		startActivity(intent);
+		*/
+		user_id = txt_id.getText().toString().trim();
+		user_pw = txt_pw.getText().toString().trim();
+		
 		th = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				// Try Login
 				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
+					//Thread.sleep(1000);
+
+					//start http connection
+					
+					HttpPost httppost;
+					StringBuffer buffer;
+					//HttpResponse response;
+					HttpClient httpclient;
+					ArrayList<NameValuePair> postdata = new ArrayList<NameValuePair>();
+					httpclient = new DefaultHttpClient();
+					httppost = new HttpPost(Config.URL_login);
+					
+					postdata.add(new BasicNameValuePair("user_id", user_id));
+					postdata.add(new BasicNameValuePair("user_pw", user_pw));
+					
+					httppost.setEntity(new UrlEncodedFormEntity(postdata));
+					
+					response = httpclient.execute(httppost);
+					
+					ResponseHandler<String> responseHandler = new BasicResponseHandler();
+					 final String response = httpclient.execute(httppost, responseHandler);
+					 
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							Config.toast(LoginActivity.this, "로그인 중입니다.");
+						}
+					});
+					//end of http connection
+				} catch (Exception e) {
 
 				}
 				Config.loadingState = 1;
@@ -142,5 +190,6 @@ public class LoginActivity extends Activity implements OnClickListener {
 
 		th.start();
 
+		startActivity(intent);
 	}
 }
